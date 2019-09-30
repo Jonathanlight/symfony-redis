@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Redis Symfony 4 {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h4>Redis Symfony 4 ✅</h4>
+
+        {% include('composant/messageFlash.html.twig') %}
+
+        <div class="row">
+            <div class="col m6">
+                <h5>Create Item</h5>
+                {{ form_start(form) }}
+                    {{ form_widget(form.name) }}
+                    {{ form_widget(form.year) }}
+                    {{ form_widget(form.city) }}
+                    {{ form_widget(form.submit) }}
+                {{ form_end(form) }}
+            </div>
+            <div class="col m6">
+                <h5>Remove Item</h5>
+                {{ form_start(formRemove) }}
+                    {{ form_widget(formRemove.id) }}
+                    {{ form_widget(formRemove.submit) }}
+                {{ form_end(formRemove) }}
+                <span style="height: 50px;width: 100px;">&nbsp;</span>
+                <center>
+                    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/6b/Redis_Logo.svg/1200px-Redis_Logo.svg.png" class="responsive-img" />
+                </center>
+            </div>
+        </div>
+
+        <div class="row">
+            <ul class="collection with-header">
+                <li class="collection-header"><h4>Name user</h4></li>
+                {% for item in items %}
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">person</i>
+                        <span class="title"><b>{{ item['item'].id }}</b></span>
+                        <p>{{ item['item'].name }} <br>
+                            {{ item['item'].year }} Year <br>
+                            {{ item['item'].city }}
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons red-text">line_weight</i></a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
