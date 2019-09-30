@@ -1,4 +1,4 @@
-# PLUS DE POINTS
+# redis symfony 4
 
 ### Why ?
 ---
@@ -65,13 +65,4 @@ Pour plus d'informations, consulter le fichier [README.md](app/integration/READM
 
 ### Authors / Maintainers
 ---
-
-- Carole Sun
-- Sofiane Souidi
-- Alexandra Ducoin
-- Barbara Roche
-- Jérôme Drzewinski
-- Jean-Bernard Pham
 - Jonathan Kablan
-- Brahim Louridi
-- Maxime Ilambe
