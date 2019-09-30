@@ -2,6 +2,7 @@
 
 namespace App\Manager;
 
+use App\Services\MessageService;
 use App\Services\RedisService;
 
 class UserManager
@@ -12,12 +13,21 @@ class UserManager
     protected $redisService;
 
     /**
+     * @var MessageService
+     */
+    protected $messageService;
+
+    /**
      * UserManager constructor.
      * @param RedisService $redisService
+     * @param MessageService $messageService
      */
-    public function __construct(RedisService $redisService)
-    {
+    public function __construct(
+        RedisService $redisService,
+        MessageService $messageService
+    ) {
         $this->redisService = $redisService;
+        $this->messageService = $messageService;
     }
 
     /**
@@ -43,6 +53,8 @@ class UserManager
      */
     public function redis_save($key, $data)
     {
+        $this->messageService->addSuccess('Data save.');
+
         return $this->redisService->setItem($key, $data);
     }
 
@@ -52,6 +64,8 @@ class UserManager
      */
     public function redis_remove($data)
     {
+        $this->messageService->addSuccess('Data remove.');
+
         return $this->redisService->removeItem($data['id']);
     }
 }

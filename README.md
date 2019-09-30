@@ -1,5 +1,7 @@
 # redis symfony 4
 
+![](screenshot.png)
+
 ### Why ?
 ---
 
